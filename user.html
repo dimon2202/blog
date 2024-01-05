@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Details</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      header {
+        background-color: #333;
+        color: white;
+        padding: 1rem;
+        text-align: center;
+      }
+
+      header div {
+        max-width: 960px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      header span {
+        margin: auto 0;
+      }
+
+      main {
+        max-width: 960px;
+        margin: 0 auto;
+      }
+
+      h2 {
+        color: #333;
+      }
+
+      p {
+        color: #666;
+      }
+
+      .address {
+        margin-top: 1rem;
+      }
+
+      .geo {
+        margin-top: 0.5rem;
+      }
+
+      .company {
+        margin-top: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1>User Details</h1>
+        <span id="current-date"></span>
+      </div>
+    </header>
+    <main>
+        <div id="userDetails"></div>
+    </main>
+    
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Extract user ID from the URL query parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const userId = urlParams.get("id");
+
+        // Fetch user details based on the user ID
+        fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
+          .then((response) => response.json())
+          .then((user) => {
+            const userDetails = document.getElementById("userDetails");
+            userDetails.innerHTML = `
+                        <h3>${user.name}</h3>
+                        <p>Username: ${user.username}</p>
+                        <p>Email: ${user.email}</p>
+                        <div class="address">
+                            <p>Address: ${user.address.street}, ${user.address.suite}, ${user.address.city}, ${user.address.zipcode}</p>
+                            <div class="geo">
+                                <p>Geo: ${user.address.geo.lat}, ${user.address.geo.lng}</p>
+                            </div>
+                        </div>
+                        <p>Phone: ${user.phone}</p>
+                        <p>Website: ${user.website}</p>
+                        <div class="company">
+                            <p>Company: ${user.company.name}</p>
+                            <p>Catch Phrase: ${user.company.catchPhrase}</p>
+                            <p>Business: ${user.company.bs}</p>
+                        </div>
+                    `;
+          });
+      });
+    </script>
+  </body>
+</html>
