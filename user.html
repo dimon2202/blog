@@ -54,6 +54,21 @@
       .company {
         margin-top: 1rem;
       }
+
+      button {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 10px;
+      }
+
+      button:hover {
+        background-color: #5d5d5d;
+      }
     </style>
   </head>
   <body>
@@ -64,9 +79,9 @@
       </div>
     </header>
     <main>
-        <div id="userDetails"></div>
+      <div id="userDetails"></div>
+      <button id="backButton">Back to Main Page</button>
     </main>
-    
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
@@ -98,6 +113,13 @@
                         </div>
                     `;
           });
+
+        // Add event listener for the back button
+        const backButton = document.getElementById("backButton");
+        backButton.addEventListener("click", () => {
+          // Redirect back to the main page
+          window.location.href = "index.html";
+        });
       });
     </script>
   </body>
