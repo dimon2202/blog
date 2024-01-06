@@ -1,52 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <header>
-        <div>
-          <h1>Blog Site</h1>
-          <span id="current-date"></span>
-        </div>
+      <div>
+        <h1>Blog Site</h1>
+        <span id="current-date"></span>
+      </div>
     </header>
     <main>
-        <div class="loading" id="loading">
-          <div class="spinner"></div>
-        </div>
-        <h2>Posts</h2>
-       
-        <!-- <div class="slider" id="slider"></div> -->
-
-        <!-- <div class="slider-container">
-          <button class="slider-button prev" id="prevButton">&lt;</button>
-          <div class="slider" id="slider"></div>
-          <button class="slider-button next" id="nextButton">&gt;</button>
-        </div> -->
-
-        <div class="slider-container">
-          <!-- Swiper -->
-          <div class="swiper-container" id="slider">
-              <div class="swiper-wrapper"></div>
-              <!-- Add Pagination -->
-              <div class="swiper-pagination"></div>
-              <!-- Add Navigation -->
-              <div class="swiper-button-next"></div>
-              <div class="swiper-button-prev"></div>
-          </div>
-          <!-- <button class="slider-button prev" id="prevButton">&lt;</button>
-          <button class="slider-button next" id="nextButton">&gt;</button> -->
+      <div class="loading" id="loading">
+        <div class="spinner"></div>
       </div>
 
+      <h2>Posts</h2>
+      <div class="slider-container">
+        <div class="swiper-container" id="slider">
+          <div class="swiper-wrapper"></div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </div>
+      </div>
 
-        <h2>Users</h2>
-        <ul class="user-list" id="userList"></ul>
+      <h2>Users</h2>
+      <ul class="user-list" id="userList"></ul>
     </main>
+
     <footer>
-        <p>&copy; 2024 Blog Site</p>
+      <p>&copy; 2024 Blog Site</p>
     </footer>
 
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>

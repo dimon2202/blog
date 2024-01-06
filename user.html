@@ -78,21 +78,29 @@
         <span id="current-date"></span>
       </div>
     </header>
+
     <main>
+      <div class="loading" id="loading">
+        <div class="spinner"></div>
+      </div>
       <div id="userDetails"></div>
       <button id="backButton">Back to Main Page</button>
     </main>
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        // Extract user ID from the URL query parameter
         const urlParams = new URLSearchParams(window.location.search);
         const userId = urlParams.get("id");
+        const loading = document.getElementById("loading");
 
-        // Fetch user details based on the user ID
+        loading.style.display = "flex";
+
+        // Fetch user details
         fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
           .then((response) => response.json())
           .then((user) => {
+            loading.style.display = "none";
+
             const userDetails = document.getElementById("userDetails");
             userDetails.innerHTML = `
                         <h3>${user.name}</h3>
@@ -114,10 +122,8 @@
                     `;
           });
 
-        // Add event listener for the back button
         const backButton = document.getElementById("backButton");
         backButton.addEventListener("click", () => {
-          // Redirect back to the main page
           window.location.href = "index.html";
         });
       });
